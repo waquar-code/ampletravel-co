@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light wrapper-gap">
+  <a href="javascript:void(0);" class="navbar-brand" [routerLink]="['/home']">
+    <img
+      src="https://ampletravel.co/uploads/logo1.png"
+      height="65"
+      width="250"
+      alt="logo"
+    />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active ml-1">
+        <a class="nav-link" href="javascript:void(0);" [routerLink]="['/home']">
+          <i class="fa fa-home"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item ml-1">
+        <a class="nav-link" href="javascript:void(0);" [routerLink]="['/home']">
+          <i class="fa-solid fa-hotel"></i>
+          Hotel/Stay
+        </a>
+      </li>
+      <li class="nav-item ml-1">
+        <a class="nav-link" href="javascript:void(0);" [routerLink]="['/home']">
+          <i class="fa fa-plane"></i>
+          Flight
+        </a>
+      </li>
+      <li class="nav-item ml-1">
+        <button
+          type="button"
+          class="nav-link btn btn-primary"
+          [routerLink]="['/signup']"
+        >
+          Sign Up
+        </button>
+      </li>
+      <li class="nav-item ml-1">
+        <button
+          type="button"
+          class="nav-link btn btn-primary"
+          [routerLink]="['/login']"
+        >
+          Login
+        </button>
+      </li>
+
+      <!-- <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="javascript:void(0);"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="javascript:void(0);">Action</a>
+          <a class="dropdown-item" href="javascript:void(0);">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="javascript:void(0);">Something else here</a>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</nav>

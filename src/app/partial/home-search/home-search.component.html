@@ -1,0 +1,127 @@
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active text-white" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+      aria-controls="pills-home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+      aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+</ul>
+<div id="pills-tabContent" class="tab-content card p-4">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="h-dest_name">Where to?</label>
+        <input id="h-dest_name" type="text" class="form-control" placeholder="Enter city or property" />
+      </div>
+      <div class="col-md-3 col-12">
+        <label>Check In</label>
+        <input id="h-date_range-1" type="date" class="form-control" placeholder="Enter city or property"
+          value="2024-11-23" />
+      </div>
+      <div class="col-md-3 col-12">
+        <label>Check Out</label>
+        <input id="h-date_range-2" type="date" class="form-control" placeholder="Enter city or property"
+          value="2024-11-25" />
+      </div>
+      <div class="col-md-3 col-12">
+        <label class="d-block">Guests</label>
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            1 Room(s) - 1 Guest(s)
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">
+              Something else here
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
+        <button class="btn btn-primary">Search Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="one_way" name="flight_type" class="custom-control-input" />
+          <label class="custom-control-label" for="one_way">One way</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="round_trip" name="flight_type" class="custom-control-input" checked />
+          <label class="custom-control-label" for="round_trip">Round-trip</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" id="direct _flight" name="direct _flight" class="custom-control-input" />
+          <label class="custom-control-label" for="direct _flight">Direct Flight</label>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label>Flying from</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-map-marker"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control" value="Talaveral La Real Arpt, ES (BJZ)" />
+        </div>
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label>Flying to</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-map-marker"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control" value="Los Angeles Intl Arpt, US (LAX)" />
+        </div>
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label>Departing</label>
+        <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23">
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label>Return</label>
+        <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23">
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label class="d-block">Guests</label>
+        <div>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle w-100 text-left" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Traveller
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">
+              Something else here
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label>Coach</label>
+        <select class="form-control" name="cabin_class" id="cabin_class">
+          <option selected="" value="economy">Economy</option>
+          <option value="premium_economy">Premium</option>
+          <option value="first">First Class</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+      <div class="col-md-3 col-12 mb-3">
+        <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
+        <button class="btn btn-primary">Search Now</button>
+      </div>
+    </div>
+  </div>
+</div>
