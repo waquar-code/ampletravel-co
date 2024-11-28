@@ -16,6 +16,8 @@ import {
   HashLocationStrategy,
   LocationStrategy,
 } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,13 @@ import {
     SubscribeEmailComponent,
     HomeSearchComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NoopAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

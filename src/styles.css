@@ -1,3 +1,6 @@
+:root {
+  --header-height: 100px;
+}
 html,
 body {
   height: 100%;
@@ -58,9 +61,29 @@ a:hover {
   background-color: #fff !important;
   color: #f75b10 !important;
 }
+.nav-pills .nav-link {
+  background: #fff;
+  color: #f75b10 !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background-color: #f75b10 !important;
   /* border: 1px solid #f75b10 !important; */
   color: #fff !important;
+}
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 99;
+  background: #f8f9fa;
+  height: var(--header-height);
+}
+
+body {
+  padding-top: var(--header-height) !important;
 }
