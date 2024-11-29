@@ -18,6 +18,8 @@ import {
 } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalsComponent } from './partial/modals/modals.component';
+import { FlightListsComponent } from './home/flight-lists/flight-lists.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     SubscribeEmailComponent,
     HomeSearchComponent,
+    ModalsComponent,
+    FlightListsComponent,
   ],
   imports: [
     BrowserModule,

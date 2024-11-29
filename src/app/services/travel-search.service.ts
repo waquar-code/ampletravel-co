@@ -1,6 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Keys } from '../keys';
+import { catchError, delay, map, throwError } from 'rxjs';
+
+const url =
+  'https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts';
 
 @Injectable({
   providedIn: 'root',
@@ -5804,7 +5808,6 @@ export class TravelSearchService {
       id: 'orq_0000AoQo8WzO4HmAovnabo',
     },
   };
-
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -5814,24 +5817,52 @@ export class TravelSearchService {
       'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
       Accept: 'application/json',
       'Duffel-Version': 'v2',
-      Authorization:
-        '',
+      Authorization: '',
     }),
   };
-  private url =
-    'https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts';
   private duffel_url = 'https://api.duffel.com/air/offer_requests';
+
+  private flight_lists: any = null;
 
   constructor(private http: HttpClient, private keys: Keys) {}
 
+  /////////////////
+  // HTTP REQUESTS
+  /////////////////
   getFlightResult(body: any) {
-    return this.flight_response;
-
-    return this.http.post(this.duffel_url, body, this.httpOptions);
+    // return this.http.post(this.duffel_url, body, this.httpOptions);
+    this.showFlightModal(body);
+    return this.http.get(url).pipe(
+      delay(500),
+      map((response) => {
+        this.hideModals();
+        // return response;
+        this.flight_lists = this.flight_response;
+        return this.flight_lists;
+      }),
+      catchError((error) => {
+        this.hideModals();
+        return throwError(error);
+      })
+    );
   }
 
-  getPosts() {
-    console.log(this.keys.getDuffleKey());
-    return this.http.get(this.url);
+  /////////////////
+  // MODAL LOGIC
+  /////////////////
+  getFlightList() {
+    return this.flight_lists;
+  }
+
+  /////////////////
+  // MODAL LOGIC
+  /////////////////
+  showFlightModal(value: any) {
+    console.log('showFlightModal');
+    return true;
+  }
+  hideModals() {
+    console.log('hideModals');
+    return true;
   }
 }

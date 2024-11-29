@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { FlightListsComponent } from './home/flight-lists/flight-lists.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, //default route
@@ -20,15 +21,15 @@ const routes: Routes = [
     //   { path: '**', redirectTo: 'login' },
     // ],
   },
-  // {
-  //   path: 'product/:id',
-  //   component: ProductComponent,
-  //   children: [
-  //     { path: '', redirectTo: 'updates', pathMatch: 'full' },
-  //     { path: 'offers', component: ProductOfferComponent },
-  //     { path: 'updates', component: ProductUpdatesComponent },
-  //   ],
-  // },
+  {
+    path: 'flight-list',
+    component: FlightListsComponent,
+    // children: [
+    //   { path: '', redirectTo: 'updates', pathMatch: 'full' },
+    //   { path: 'offers', component: ProductOfferComponent },
+    //   { path: 'updates', component: ProductUpdatesComponent },
+    // ],
+  },
   // {
   //   path: 'about',
   //   component: AboutComponent,

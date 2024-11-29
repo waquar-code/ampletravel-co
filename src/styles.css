@@ -62,8 +62,8 @@ a:hover {
   color: #f75b10 !important;
 }
 .nav-pills .nav-link {
-  background: #fff;
-  color: #f75b10 !important;
+  /* background: #fff; */
+  /* color: #f75b10 !important; */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }

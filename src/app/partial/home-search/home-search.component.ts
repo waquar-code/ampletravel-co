@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TravelSearchService } from 'src/app/services/travel-search.service';
 
 @Component({
@@ -20,18 +21,24 @@ export class HomeSearchComponent {
     flight_coach: new FormControl('economy'),
   });
 
-  constructor(private httpService: TravelSearchService) {}
+  constructor(
+    // private route: ActivatedRoute,
+    private router: Router,
+    private httpService: TravelSearchService
+  ) {}
 
   ngOnInit() {}
 
   onFlightFormSubmit() {
-    console.log(this.flightForm.value);
-    const a = this.httpService.getFlightResult(this.flightForm.value);
-    console.log(a);
-
-    // this.httpService.getFlightResult(this.flightForm.value).subscribe(
-    //   (response) => console.log(response),
-    //   (error) => console.log(error)
-    // );
+    // console.log(this.flightForm.value);
+    this.httpService.getFlightResult(this.flightForm.value).subscribe(
+      (response) => {
+        // console.log(response);
+        this.router.navigate(['flight-list']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
