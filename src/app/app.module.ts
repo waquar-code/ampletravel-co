@@ -4,13 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { HeaderComponent } from './partial/header/header.component';
-import { FooterComponent } from './partial/footer/footer.component';
-import { SubscribeEmailComponent } from './partial/subscribe-email/subscribe-email.component';
-import { HomeSearchComponent } from './partial/home-search/home-search.component';
 import {
   APP_BASE_HREF,
   HashLocationStrategy,
@@ -18,22 +11,17 @@ import {
 } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalsComponent } from './partial/modals/modals.component';
-import { FlightListsComponent } from './home/flight-lists/flight-lists.component';
+import { HeaderComponent } from './partial/header/header.component';
+import { FooterComponent } from './partial/footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { FlightSearchComponent } from './partial/flight-search/flight-search.component';
+import { FlightListComponent } from './flight/flight-list/flight-list.component';
+import { FlightDetailComponent } from './flight/flight-detail/flight-detail.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    HeaderComponent,
-    FooterComponent,
-    SubscribeEmailComponent,
-    HomeSearchComponent,
-    ModalsComponent,
-    FlightListsComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
