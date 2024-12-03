@@ -87,3 +87,6 @@ app-header {
 body {
   padding-top: var(--header-height) !important;
 }
+.custom-control {
+  cursor: pointer;
+}

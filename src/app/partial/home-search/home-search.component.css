@@ -1,3 +1,11 @@
+.home-search {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(https://ampletravel.co/uploads/b_image3.png);
+  background-size: cover;
+}
+
 .flight-guest-div input {
   text-align: center;
 }
@@ -7,8 +15,26 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+.dropdown-toggle::after {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.dropdown-toggle {
+  position: relative;
+}
+.dropdown-toggle {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-color: #ced4da !important;
+}
+.input-group-text {
+  cursor: pointer;
+  user-select: none;
 }

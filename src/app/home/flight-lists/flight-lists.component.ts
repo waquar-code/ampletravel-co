@@ -14,7 +14,7 @@ export class FlightListsComponent {
   }
 
   renderFlightList() {
-    const data = this.httpService.getFlightList();
-    console.log(data);
+    // const data = this.httpService.getFlightList();
+    // console.log(data);
   }
 }
