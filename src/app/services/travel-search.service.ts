@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Keys } from '../keys';
 import { catchError, delay, map, throwError } from 'rxjs';
 
+// import * as $ from 'jquery';
+// console.log($('body').width());
+
 const url =
   'https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts';
 
@@ -5831,7 +5834,7 @@ export class TravelSearchService {
   /////////////////
   getFlightResult(body: any) {
     // return this.http.post(this.duffel_url, body, this.httpOptions);
-    this.showFlightModal(body);
+    // this.showFlightModal(body);
     return this.http.get(url).pipe(
       delay(500),
       map((response) => {
@@ -5851,6 +5854,10 @@ export class TravelSearchService {
   // MODAL LOGIC
   /////////////////
   getFlightList() {
+    setInterval(() => {
+      console.log(this.flight_lists);
+    }, 1000);
+
     return this.flight_lists;
   }
 
@@ -5859,8 +5866,12 @@ export class TravelSearchService {
   /////////////////
   showFlightModal(value: any) {
     console.log('showFlightModal');
+    console.log(value);
+
+    // $('#loadingModal2').modal('show');
     return true;
   }
+
   hideModals() {
     console.log('hideModals');
     return true;

@@ -38,3 +38,19 @@ input[type="number"] {
   cursor: pointer;
   user-select: none;
 }
+
+#flightModal {
+  display: block;
+}
+div#flightModal.show:before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  content: "";
+  z-index: 0;
+  opacity: 0.5;
+}

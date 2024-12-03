@@ -1,4 +1,4 @@
-<section class="home-search ">
+<section class="home-search">
   <div class="wrapper-gap">
     <ul *ngIf="isHomePage" class="nav nav-pills" id="pills-tab" role="tablist">
       <li class="nav-item">
@@ -182,3 +182,27 @@
     </div>
   </div>
 </section>
+
+
+
+<div class="modal fade" [ngClass]="showFlightSearchModal ? 'show' : ''" id="flightModal" tabindex="-1" role="dialog"
+  aria-labelledby="flightModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="flightModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, obcaecati vitae saepe reiciendis
+        exercitationem odit.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

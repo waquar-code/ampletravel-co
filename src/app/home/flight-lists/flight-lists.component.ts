@@ -7,6 +7,7 @@ import { TravelSearchService } from 'src/app/services/travel-search.service';
   styleUrls: ['./flight-lists.component.css'],
 })
 export class FlightListsComponent {
+  showFlightModal = false;
   constructor(private httpService: TravelSearchService) {}
 
   ngOnInit() {
@@ -14,7 +15,7 @@ export class FlightListsComponent {
   }
 
   renderFlightList() {
-    // const data = this.httpService.getFlightList();
-    // console.log(data);
+    const data = this.httpService.getFlightList();
+    console.log(data);
   }
 }

@@ -11,6 +11,7 @@ import { TravelSearchService } from 'src/app/services/travel-search.service';
 })
 export class HomeSearchComponent {
   isHomePage = true;
+  showFlightSearchModal = false;
 
   flightForm = new FormGroup({
     flight_from: new FormControl('McCarran Intl, US (LAS)', [
@@ -30,7 +31,7 @@ export class HomeSearchComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private httpService: TravelSearchService
+    private travelHttpService: TravelSearchService
   ) {}
 
   ngOnInit() {
@@ -51,6 +52,10 @@ export class HomeSearchComponent {
         flight_infant: params.flight_infant,
         flight_coach: params.flight_coach,
       });
+
+      this.travelHttpService.showFlightModal(this.flightForm.value);
+      // this.showFlightSearchModal = true;
+      // console.log(this.showFlightSearchModal);
     }
   }
 
@@ -70,7 +75,7 @@ export class HomeSearchComponent {
       queryParams: this.flightForm.value,
     });
 
-    // this.httpService.getFlightResult(this.flightForm.value).subscribe(
+    // this.travelHttpService.getFlightResult(this.flightForm.value).subscribe(
     //   (response) => {
     //     // console.log(response);
     //     this.router.navigate(['flight-list']);
