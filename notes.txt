@@ -4,6 +4,7 @@ ng g c partial/footer
 ng g c auth/login
 ng g c auth/signup
 ng g c partial/flight-search
+ng g c partial/hotel-search
 ng g c flight/flight-list
 ng g c flight/flight-detail
 ng g s services/travel-service

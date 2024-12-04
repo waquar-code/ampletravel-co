@@ -3,41 +3,42 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { FlightListComponent } from './flight/flight-list/flight-list.component';
+import { FlightSearchComponent } from './partial/flight-search/flight-search.component';
+import { HotelSearchComponent } from './partial/hotel-search/hotel-search.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' }, //default route
+  { path: '', redirectTo: '', pathMatch: 'full' }, //default route
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent },
+
+  { path: 'flight-search', component: FlightSearchComponent },
+  { path: 'hotel-search', component: HotelSearchComponent },
+
   // {
-  //   path: 'home',
+  //   path: '',
   //   component: HomeComponent,
-  //   // children: [
-  //   //   // { path: '', redirectTo: 'home' },
-  //   //   { path: '', component: LoginComponent },
-  //   //   { path: 'signup', component: SignupComponent },
-  //   //   { path: '**', redirectTo: 'login' },
-  //   // ],
+  //   children: [
+  //     // { path: '', redirectTo: 'flight-search' },
+  //     { path: '', redirectTo: '', pathMatch: 'full' },
+  //     { path: '', component: FlightSearchComponent },
+  //     { path: 'flight-search', component: FlightSearchComponent },
+  //     { path: 'hotel-search', component: HotelSearchComponent },
+  //     { path: '**', redirectTo: 'flight-search' },
+  //   ],
   // },
   // {
   //   path: 'flight-list',
-  //   component: FlightListsComponent,
+  //   component: FlightListComponent,
   //   // children: [
   //   //   { path: '', redirectTo: 'updates', pathMatch: 'full' },
-  //   //   { path: 'offers', component: ProductOfferComponent },
   //   //   { path: 'updates', component: ProductUpdatesComponent },
   //   // ],
   // },
-  // {
-  //   path: 'about',
-  //   component: AboutComponent,
-  //   children: [
-  //     { path: 'rating', outlet: 'rate', component: RatingComponent },
-  //     { path: 'feedback', outlet: 'feed', component: FeedbackComponent },
-  //   ],
-  // },
-  // { path: 'contact', component: ContactComponent },
-  // { path: '**', component: HomeComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

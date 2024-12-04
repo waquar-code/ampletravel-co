@@ -19,9 +19,10 @@ import { FlightSearchComponent } from './partial/flight-search/flight-search.com
 import { FlightListComponent } from './flight/flight-list/flight-list.component';
 import { FlightDetailComponent } from './flight/flight-detail/flight-detail.component';
 import { HomeComponent } from './home/home.component';
+import { HotelSearchComponent } from './partial/hotel-search/hotel-search.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent, HotelSearchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

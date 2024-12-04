@@ -17,18 +17,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 a {
-  color: #000;
+  color: #fff;
 }
 a:hover {
   text-decoration: none;
 }
-
 /*---------------- wrapper-gap ----------------*/
 .wrapper-gap {
   max-width: 1200px;
   margin: auto;
 }
-
 @media (min-width: 576px) {
   .wrapper-gap {
     max-width: 540px;
@@ -49,15 +47,45 @@ a:hover {
     max-width: 1200px;
   }
 }
-
 body {
-  background: teal;
+  background: #212121;
   padding: 10px;
+  color: #fff;
+  font-size: 18px;
 }
-.t-card {
+.card {
   margin: 10px 0;
   padding: 10px;
-  background: wheat;
-  border: 2px solid;
-  border-color: thistle;
+  background: #363636;
+}
+button {
+  background: #fff;
+  padding: 5px 11px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  font-size: inherit;
+  background: #5e5e5e;
+  color: #fff;
+}
+.search-is-active,
+.is-active {
+  background: #fdfdfd;
+  color: #232323;
+}
+footer a {
+  color: #fff;
+}
+form input {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
 }
