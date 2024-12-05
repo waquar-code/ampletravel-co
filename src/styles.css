@@ -101,3 +101,28 @@ button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
+.c-modal {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.c-modal:before {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+}
+.c-modal-body {
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #565656;
+  border-radius: 3px;
+}

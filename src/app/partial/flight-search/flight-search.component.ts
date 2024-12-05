@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TravelServiceService } from 'src/app/services/travel-service.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -8,8 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./flight-search.component.css'],
 })
 export class FlightSearchComponent {
-  // const filterChanges$ = new Subject()
-  
   flightForm = new FormGroup({
     flight_from: new FormControl('McCarran Intl, US (LAS)', [
       Validators.required,
@@ -17,44 +16,38 @@ export class FlightSearchComponent {
   });
 
   constructor(
-    // private travelHttpService: TravelSearchService
-
+    private travelService: TravelServiceService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.setFlightFormValues();
+    console.log('getFlightFormValues');
+    // this.travelService.nextFlightFormValues().subscribe((result) => {
+
+    this.travelService.getFlightFormValues().subscribe((result) => {
+      this.travelService.getFlightFormValues().unsubscribe();
+
+      console.log(result);
+      this.setFlightFormValues(result);
+    });
+    // flightFormValues
   }
 
-  setFlightFormValues() {
-    const queryFormData: any = this.route.snapshot.queryParamMap;
-    const params = queryFormData.params;
+  setFlightFormValues(result: any) {
+    this.flightForm.patchValue({
+      flight_from: result.flight_from,
+    });
 
-    const formControlLength = Object.keys(this.flightForm.value);
-    const queryDataLength = Object.keys(params);
-
-    console.log('formControlLength');
-    console.log(formControlLength);
-    console.log('queryDataLength');
-    console.log(queryDataLength);
-
-    if (queryDataLength >= formControlLength) {
-      this.flightForm.patchValue({
-        flight_from: params.flight_from,
-      });
-
-      // this.travelHttpService.showFlightModal(this.flightForm.value);
-      // this.showFlightSearchModal = true;
-      console.log('values was set');
-    }
+    this.travelService.flightSearch(this.flightForm.value);
   }
 
   onFlightFormSubmit() {
-    console.log(this.flightForm.value);
+    // console.log(this.flightForm.value);
+    this.travelService.nextFlightFormValues(this.flightForm.value);
 
-    this.router.navigate(['flight-list'], {
-      queryParams: this.flightForm.value,
-    });
+    // this.router.navigate(['flight-list'], {
+    //   queryParams: this.flightForm.value,
+    // });
   }
 }

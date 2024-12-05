@@ -20,9 +20,10 @@ import { FlightListComponent } from './flight/flight-list/flight-list.component'
 import { FlightDetailComponent } from './flight/flight-detail/flight-detail.component';
 import { HomeComponent } from './home/home.component';
 import { HotelSearchComponent } from './partial/hotel-search/hotel-search.component';
+import { ModalComponent } from './partial/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent, HotelSearchComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent, HotelSearchComponent, ModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
