@@ -1,5 +1,11 @@
 <div class="card">
-  flight-search works!
-  <hr>
-  <button type="button" [routerLink]="['/flight-list']">Search</button>
+  <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
+    <label for="flight-from">Flight From</label>
+    <input type="text" id="flight-from" name="username" required placeholder="City or airport"
+      value="McCarran Intl, US (LAS)" formControlName="flight_from">
+
+    <br><br>
+    <!-- <button type="button" [routerLink]="['/flight-list']">Search</button> -->
+    <button type="submit" [disabled]="!flightForm.valid">Search</button>
+  </form>
 </div>

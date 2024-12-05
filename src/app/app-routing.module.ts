@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { FlightListComponent } from './flight/flight-list/flight-list.component';
 import { FlightSearchComponent } from './partial/flight-search/flight-search.component';
 import { HotelSearchComponent } from './partial/hotel-search/hotel-search.component';
+import { FlightDetailComponent } from './flight/flight-detail/flight-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, //default route
@@ -16,6 +17,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
   { path: 'flight-search', component: FlightSearchComponent },
+  { path: 'flight-list', component: FlightListComponent },
+  { path: 'flight-detail', component: FlightDetailComponent },
+
   { path: 'hotel-search', component: HotelSearchComponent },
 
   // {
