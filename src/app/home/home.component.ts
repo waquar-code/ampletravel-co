@@ -9,7 +9,6 @@ export class HomeComponent {
   isFlightSearchShown = true;
 
   showSearchTab(mode: string) {
-    console.log(mode);
     this.isFlightSearchShown = mode == 'flight';
   }
 }
