@@ -1,12 +1,24 @@
 <app-flight-search></app-flight-search>
-<div class="card">
-  <ul>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-    <li>Lorem ipsum dolor sit amet.</li>
-  </ul>
+<div class="card" *ngIf="flightData && flightData.length > 0">
+  <div *ngFor="let item of flightData">
+    <div
+      style="
+        padding: 10px;
+        background: #525252;
+        border-radius: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 10px;
+      "
+    >
+      <div style="width: 50%">
+        <div>origin: {{ item.origin }}</div>
+        <div>destination: {{ item.destination }}</div>
+      </div>
+      <div style="width: 50%">
+        <div>departureDate: {{ item.departureDate }}</div>
+        <div>arrivalDate: {{ item.arrivalDate }}</div>
+      </div>
+    </div>
+  </div>
 </div>

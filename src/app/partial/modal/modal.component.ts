@@ -11,13 +11,14 @@ export class ModalComponent {
   formDataEl = '';
 
   constructor(private modalService: ModalServiceService) {
-    this.modalService.getFlightModal().subscribe((r) => {
+    this.modalService.getFlightModalSubject().subscribe((r) => {
       this.handleFlightModal(r);
     });
   }
 
   handleFlightModal(data: any) {
-    console.log(data);
+    // console.log(data);
+
     this.showFlightModal = data.show;
     if (this.showFlightModal == false) return;
 
@@ -25,7 +26,6 @@ export class ModalComponent {
 
     this.formDataEl = `
       Flight From: ${d.flight_from} <br>
-      Flight To: ${d.flight_from} <br>
     `;
   }
 }

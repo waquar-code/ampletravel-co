@@ -22,32 +22,28 @@ export class FlightSearchComponent {
   ) {}
 
   ngOnInit() {
-    console.log('getFlightFormValues');
-    // this.travelService.nextFlightFormValues().subscribe((result) => {
-
-    this.travelService.getFlightFormValues().subscribe((result) => {
-      this.travelService.getFlightFormValues().unsubscribe();
-
-      console.log(result);
-      this.setFlightFormValues(result);
-    });
-    // flightFormValues
+    this.setFlightFormValues();
   }
 
-  setFlightFormValues(result: any) {
-    this.flightForm.patchValue({
-      flight_from: result.flight_from,
-    });
+  setFlightFormValues() {
+    const queryFormData: any = this.route.snapshot.queryParamMap;
+    const params = queryFormData.params;
 
-    this.travelService.flightSearch(this.flightForm.value);
+    if ('flight_from' in params) {
+      this.flightForm.patchValue({
+        flight_from: params.flight_from,
+      });
+      this.travelService.searchFlights(this.flightForm.value);
+      // console.log(`set flight values from query`);
+    }
   }
 
   onFlightFormSubmit() {
     // console.log(this.flightForm.value);
-    this.travelService.nextFlightFormValues(this.flightForm.value);
+    this.travelService.searchFlights(this.flightForm.value);
 
-    // this.router.navigate(['flight-list'], {
-    //   queryParams: this.flightForm.value,
-    // });
+    this.router.navigate(['flight-list'], {
+      queryParams: this.flightForm.value,
+    });
   }
 }

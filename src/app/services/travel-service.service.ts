@@ -7,28 +7,41 @@ import { ModalServiceService } from './modal-service.service';
 })
 export class TravelServiceService {
   private flightFormValueSubject = new Subject();
-  private flightListDataSubject = new Subject();
+  private flightFormValue = null;
+
+  private flightSearchResultSubject = new Subject();
 
   constructor(private modalService: ModalServiceService) {}
 
-  getFlightFormValues() {
-    return this.flightFormValueSubject;
+  getFlightSearchResultSubject() {
+    return this.flightSearchResultSubject;
   }
 
-  nextFlightFormValues(obj: any) {
-    return this.flightFormValueSubject.next(obj);
-  }
-
-  flightSearch(value: any) {
+  searchFlights(value: any) {
     this.flightFormValueSubject.next(value);
+    this.flightSearchResultSubject.next([]);
 
-    this.modalService.showFlightModal();
+    this.modalService.showFlightModal(value);
 
     setTimeout(() => {
-      // [...Array(parseInt(Math.random() * 10)).keys()],
-      const d = { list: [1, 2, 3, 4, 5, 6] };
+      const flightData = [
+        {
+          origin: 'DAC',
+          destination: 'CGP',
 
-      this.flightListDataSubject.next(d);
+          departureDate: '2020-04-26T07:00',
+          arrivalDate: '2020-04-26T07:55',
+        },
+        {
+          origin: 'CGP',
+          destination: 'DAC',
+
+          departureDate: '2020-04-29T08:25',
+          arrivalDate: '2020-04-29T09:20',
+        },
+      ];
+
+      this.flightSearchResultSubject.next(flightData);
 
       this.modalService.hideFlightModal();
     }, 4000);

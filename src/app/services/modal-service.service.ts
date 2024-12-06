@@ -9,16 +9,14 @@ export class ModalServiceService {
 
   constructor() {}
 
-  getFlightModal() {
+  getFlightModalSubject() {
     return this.flightModalSubject;
   }
 
-  showFlightModal() {
+  showFlightModal(value: any) {
     this.flightModalSubject.next({
       show: true,
-      data: {
-        flight_from: 'xyz',
-      },
+      data: value,
     });
   }
 
