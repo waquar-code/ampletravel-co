@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TravelServiceService } from 'src/app/services/travel-service.service';
@@ -6,6 +6,7 @@ import { TravelServiceService } from 'src/app/services/travel-service.service';
 @Component({
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./flight-search.component.css'],
 })
 export class FlightSearchComponent {

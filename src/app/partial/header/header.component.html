@@ -10,17 +10,18 @@
 </div> -->
 
 <section class="navigation">
-  <div class="nav-container">
+  <div class="nav-container wrapper-gap">
     <div class="brand">
-      <a routerLink="/">Logo</a>
+      <a routerLink="/">
+        <img src="https://ampletravel.co/uploads/logo1.png" alt="https://ampletravel.co/uploads/logo1.png">
+      </a>
     </div>
     <nav>
       <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
+        <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</a></li>
         <li><a routerLink="/flight-search" routerLinkActive="is-active">Flight Search</a></li>
-        <li><a routerLink="/login" routerLinkActive="is-active">Login</a></li>
-        <li><a routerLink="/signup" routerLinkActive="is-active">Signup</a></li>
         <li>
           <a href="#!">Services</a>
           <ul class="navbar-dropdown">
@@ -35,26 +36,8 @@
             </li>
           </ul>
         </li>
-        <li>
-          <a href="#!">Portfolio</a>
-        </li>
-        <li>
-          <a href="#!">Category</a>
-          <ul class="navbar-dropdown">
-            <li>
-              <a href="#!">Sass</a>
-            </li>
-            <li>
-              <a href="#!">Less</a>
-            </li>
-            <li>
-              <a href="#!">Stylus</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#!">Contact</a>
-        </li>
+        <li><a routerLink="/login" routerLinkActive="is-active">Login</a></li>
+        <li><a routerLink="/signup" routerLinkActive="is-active">Signup</a></li>
       </ul>
     </nav>
   </div>
