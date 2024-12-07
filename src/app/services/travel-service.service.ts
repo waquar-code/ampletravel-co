@@ -41,6 +41,10 @@ export class TravelServiceService {
         },
       ];
 
+      for (let i = 0; i < Math.random() * 10; i++) {
+        flightData.push(flightData[0]);
+      }
+
       this.flightSearchResultSubject.next(flightData);
 
       this.modalService.hideFlightModal();
