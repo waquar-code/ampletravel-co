@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
+
 import {
   APP_BASE_HREF,
   HashLocationStrategy,
   LocationStrategy,
 } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { MaterialModule } from './material.module';
+
 import { HeaderComponent } from './partial/header/header.component';
 import { FooterComponent } from './partial/footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -23,11 +31,25 @@ import { HotelSearchComponent } from './partial/hotel-search/hotel-search.compon
 import { ModalComponent } from './partial/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, SignupComponent, FlightSearchComponent, FlightListComponent, FlightDetailComponent, HomeComponent, HotelSearchComponent, ModalComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    SignupComponent,
+    FlightSearchComponent,
+    FlightListComponent,
+    FlightDetailComponent,
+    HomeComponent,
+    HotelSearchComponent,
+    ModalComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    // NoopAnimationsModule,
+    MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

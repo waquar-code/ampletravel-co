@@ -1,4 +1,4 @@
-<div class="card" style="display: flex; justify-content: space-between;">
+<!-- <div class="card wrapper-gap" style="display: flex; justify-content: space-between;">
   <span routerLink="/">Navbar Icon</span>
   <div>
     <button type="button" routerLink="/">Home</button>
@@ -7,4 +7,55 @@
     <button type="button" routerLink="/login" routerLinkActive="is-active">Login</button>
     <button type="button" routerLink="/signup" routerLinkActive="is-active">Signup</button>
   </div>
-</div>
+</div> -->
+
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a routerLink="/">Logo</a>
+    </div>
+    <nav>
+      <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li><a routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</a></li>
+        <li><a routerLink="/flight-search" routerLinkActive="is-active">Flight Search</a></li>
+        <li><a routerLink="/login" routerLinkActive="is-active">Login</a></li>
+        <li><a routerLink="/signup" routerLinkActive="is-active">Signup</a></li>
+        <li>
+          <a href="#!">Services</a>
+          <ul class="navbar-dropdown">
+            <li>
+              <a href="#!">Sass</a>
+            </li>
+            <li>
+              <a href="#!">Less</a>
+            </li>
+            <li>
+              <a href="#!">Stylus</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#!">Portfolio</a>
+        </li>
+        <li>
+          <a href="#!">Category</a>
+          <ul class="navbar-dropdown">
+            <li>
+              <a href="#!">Sass</a>
+            </li>
+            <li>
+              <a href="#!">Less</a>
+            </li>
+            <li>
+              <a href="#!">Stylus</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#!">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>

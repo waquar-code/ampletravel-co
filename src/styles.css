@@ -7,6 +7,7 @@ body {
   height: 100%;
 }
 body {
+  padding: 0;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
@@ -15,6 +16,9 @@ body {
   color: #5d646d;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #212121;
+  color: #fff;
+  font-size: 18px;
 }
 a {
   color: #fff;
@@ -25,33 +29,28 @@ a:hover {
 /*---------------- wrapper-gap ----------------*/
 .wrapper-gap {
   max-width: 1200px;
-  margin: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-@media (min-width: 576px) {
-  .wrapper-gap {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .wrapper-gap {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .wrapper-gap {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
   .wrapper-gap {
     max-width: 1200px;
   }
 }
-body {
-  background: #212121;
-  padding: 10px;
-  color: #fff;
-  font-size: 18px;
+@media (max-width: 992px) {
+  .wrapper-gap {
+    max-width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper-gap {
+    max-width: 720px;
+  }
+}
+@media (max-width: 576px) {
+  .wrapper-gap {
+    max-width: 540px;
+  }
 }
 .card {
   margin: 10px 0;
