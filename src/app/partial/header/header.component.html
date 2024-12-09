@@ -1,38 +1,30 @@
-<!-- <div class="card wrapper-gap" style="display: flex; justify-content: space-between;">
-  <span routerLink="/">Navbar Icon</span>
-  <div>
-    <button type="button" routerLink="/">Home</button>
-    <button type="button" routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</button>
-    <button type="button" routerLink="/flight-search" routerLinkActive="is-active">Flight Search</button>
-    <button type="button" routerLink="/login" routerLinkActive="is-active">Login</button>
-    <button type="button" routerLink="/signup" routerLinkActive="is-active">Signup</button>
-  </div>
-</div> -->
-
-<section class="navigation">
-  <div class="nav-container wrapper-gap">
-    <div class="brand">
-      <a routerLink="/">
-        <img class="brand-img" src="https://ampletravel.co/uploads/logo1.png"
-          alt="https://ampletravel.co/uploads/logo1.png">
-      </a>
+<header class="header" id="header" (window:resize)="onResize($event)">
+  <!-- (scroll)="scrollHandler($event)" -->
+  <nav class="navbar wrapper-gap">
+    <a routerLink="/" class="brand">
+      <img class="brand-img" src="https://ampletravel.co/uploads/logo1.png" alt="https://ampletravel.co/uploads/logo1.png" />
+    </a>
+    <div (click)="navMenu()" class="burger" id="burger" [ngClass]="isMenuOpen ? 'is-active' : ''">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
     </div>
-    <nav>
-      <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</a></li>
-        <li><a routerLink="/flight-search" routerLinkActive="is-active">Flight Search</a></li>
-        <li>
-          <a href="#!">Dashboard</a>
-          <ul class="navbar-dropdown">
-            <li><a href="#!">Account</a></li>
-            <li><a href="#!">Logout</a></li>
-          </ul>
+    <div class="menu" id="menu" [ngClass]="isMenuOpen ? 'is-active' : ''">
+      <ul class="menu-inner">
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/hotel-search" routerLinkActive="router-is-active">Hotel Search</a>
         </li>
-        <li><a routerLink="/login" routerLinkActive="is-active">Login</a></li>
-        <li><a routerLink="/signup" routerLinkActive="is-active">Signup</a></li>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/flight-search" routerLinkActive="router-is-active">Flight Search</a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/login" routerLinkActive="router-is-active">Login</a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/signup" routerLinkActive="router-is-active">Signup</a>
+        </li>
       </ul>
-    </nav>
-  </div>
-</section>
+    </div>
+    <a href="#" class="menu-block">Account</a>
+  </nav>
+</header>

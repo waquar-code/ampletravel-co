@@ -1,25 +1,40 @@
 <app-flight-search></app-flight-search>
-<div class="card wrapper-gap" *ngIf="flightData && flightData.length > 0">
-  <div *ngFor="let item of flightData">
-    <div style="
-        padding: 10px;
-        background: #525252;
-        border-radius: 4px;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 0 10px;
-      ">
-      <div style="width: 50%">
-        <div>Origin: {{ item.origin }}</div>
-        <div>Destination: {{ item.destination }}</div>
+<div class="wrapper-gap">
+  <div class="card" *ngIf="flightData && flightData.length > 0">
+    <div *ngFor="let item of flightData">
+      <div
+        style="
+          padding: 10px;
+          background: #525252;
+          border-radius: 4px;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 0 10px;
+        "
+      >
+        <div style="width: 50%">
+          <div>Origin: {{ item.origin }}</div>
+          <div>Destination: {{ item.destination }}</div>
+        </div>
+        <div style="width: 50%">
+          <div>Departure Date: {{ item.departureDate }}</div>
+          <div>Arrival Date: {{ item.arrivalDate }}</div>
+        </div>
+        <!-- routerLink="/flight-detail" -->
+        <button
+          type="button"
+          style="
+            background: #fff;
+            color: #5e5e5e;
+            padding: 5px 10px 4px;
+            font-size: 15px;
+          "
+          [routerLink]="['/flight-detail']"
+          [queryParams]="{ search_id: item.origin }"
+        >
+          Get Details
+        </button>
       </div>
-      <div style="width: 50%">
-        <div>Departure Date: {{ item.departureDate }}</div>
-        <div>Arrival Date: {{ item.arrivalDate }}</div>
-      </div>
-      <!-- routerLink="/flight-detail" -->
-      <button type="button" style="background: #fff;color: #5e5e5e;padding: 5px 10px 4px;font-size: 15px;"
-        [routerLink]="['/flight-detail']" [queryParams]="{search_id: item.origin}">Get Details</button>
     </div>
   </div>
 </div>

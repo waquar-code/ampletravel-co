@@ -1,15 +1,27 @@
-<div class="card wrapper-gap">
-  <div>
-    <button type="button" (click)="showSearchTab('hotel')"
-      [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''">Hotel
-      Search</button>
-    <button type="button" (click)="showSearchTab('flight')"
-      [ngClass]="isFlightSearchShown ? 'search-is-active' : ''">Flight
-      Search</button>
-  </div>
+<div class="wrapper-gap">
+  <div class="card">
+    <div>
+      <button
+        type="button"
+        (click)="showSearchTab('hotel')"
+        [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''"
+      >
+        Hotel Search
+      </button>
+      <button
+        type="button"
+        (click)="showSearchTab('flight')"
+        [ngClass]="isFlightSearchShown ? 'search-is-active' : ''"
+      >
+        Flight Search
+      </button>
+    </div>
 
-  <app-hotel-search *ngIf="!isFlightSearchShown"></app-hotel-search>
-  <app-flight-search *ngIf="isFlightSearchShown"></app-flight-search>
+    <app-hotel-search *ngIf="!isFlightSearchShown"></app-hotel-search>
+    <app-flight-search *ngIf="isFlightSearchShown"></app-flight-search>
+  </div>
 </div>
 
-<div class="card wrapper-gap">subscribe to email</div>
+<div class="wrapper-gap">
+  <div class="card">subscribe to email</div>
+</div>

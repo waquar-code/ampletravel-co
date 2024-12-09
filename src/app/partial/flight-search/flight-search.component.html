@@ -1,11 +1,20 @@
-<div class="card wrapper-gap">
-  <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
-    <label for="flight-from">Flight From</label>
-    <input type="text" id="flight-from" name="username" required placeholder="City or airport"
-      value="McCarran Intl, US (LAS)" formControlName="flight_from">
+<div class="wrapper-gap">
+  <div class="card">
+    <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
+      <label for="flight-from">Flight From</label>
+      <input
+        type="text"
+        id="flight-from"
+        name="username"
+        required
+        placeholder="City or airport"
+        value="McCarran Intl, US (LAS)"
+        formControlName="flight_from"
+      />
 
-    <br><br>
-    <!-- <button type="button" [routerLink]="['/flight-list']">Search</button> -->
-    <button type="submit" [disabled]="!flightForm.valid">Search</button>
-  </form>
+      <br /><br />
+      <!-- <button type="button" [routerLink]="['/flight-list']">Search</button> -->
+      <button type="submit" [disabled]="!flightForm.valid">Search</button>
+    </form>
+  </div>
 </div>

@@ -13,12 +13,12 @@ body {
   font-size: 16px;
   line-height: 28px;
   font-family: "Roboto", sans-serif;
-  color: #5d646d;
+  /* color: #fff; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: #212121; */
-  /* background: #f4f4f4; */
   background: whitesmoke;
+  background: #212121;
+  background: #f4f4f4;
   color: #212121;
   font-size: 18px;
 }
@@ -41,38 +41,46 @@ button {
   text-decoration: none;
 }
 
+button,
+input,
+textarea,
+select {
+  outline: none !important;;
+}
 a {
-  color: #fff;
+  /* color: #fff; */
+  color: #212121;
 }
 a:hover {
   text-decoration: none;
 }
 /*---------------- wrapper-gap ----------------*/
 .wrapper-gap {
-  max-width: 1200px;
+  max-width: 90%;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 @media (max-width: 1200px) {
   .wrapper-gap {
-    max-width: 1000px;
+    max-width: 90%;
   }
 }
 @media (max-width: 992px) {
   .wrapper-gap {
-    max-width: 800px;
+    max-width: 85%;
   }
 }
 @media (max-width: 768px) {
   .wrapper-gap {
-    max-width: 700px;
+    max-width: 90%;
   }
 }
 @media (max-width: 576px) {
   .wrapper-gap {
-    max-width: 540px;
+    max-width: 95%;
   }
 }
+/*---------------- wrapper-gap ----------------*/
 .card {
   margin: 10px 0;
   padding: 10px;
@@ -150,4 +158,8 @@ button[disabled] {
   transform: translate(-50%, -50%);
   border: 1px solid #565656;
   border-radius: 3px;
+}
+
+ul {
+  list-style: none;
 }

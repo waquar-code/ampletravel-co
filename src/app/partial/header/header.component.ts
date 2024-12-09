@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 
+@HostListener('window:resize', ['$event'])
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,34 +9,21 @@ import { Component, ViewEncapsulation } from '@angular/core';
   // encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
-  /*
-  //  open and close nav
-  $("#navbar-toggle").click(function () {
-    $("nav ul").slideToggle();
-  });
+  isMenuOpen = false;
 
-  // Hamburger toggle
-  $("#navbar-toggle").on("click", function () {
-    this.classList.toggle("active");
-  });
+  onResize(event: any) {
+    if (event.target.innerWidth > 768 && this.isMenuOpen) {
+      this.isMenuOpen = false;
+    }
+  }
 
-  // If a link has a dropdown, add sub menu toggle.
-  $("nav ul li a:not(:only-child)").click(function (e) {
-    $(this).siblings(".navbar-dropdown").slideToggle("slow");
-
-    // Close dropdown when select another dropdown
-    $(".navbar-dropdown").not($(this).siblings()).hide("slow");
-    e.stopPropagation();
-  });
-
-  // Click outside the dropdown will remove the dropdown class
-  $("html").click(function () {
-    $(".navbar-dropdown").hide();
-  });
-  
-  */
+  navMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
 
-// https://codepen.io/munjewar/pen/jQrNWw
-// https://codepen.io/syahrizaldev/pen/QWmdGwe
-// https://codepen.io/HumayunK01/pen/oNPmNQP?editors=1100
+/*
+https://codepen.io/munjewar/pen/jQrNWw
+https://codepen.io/syahrizaldev/pen/QWmdGwe
+https://codepen.io/HumayunK01/pen/oNPmNQP?editors=1100
+*/
