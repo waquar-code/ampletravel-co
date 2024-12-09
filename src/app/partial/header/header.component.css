@@ -1,6 +1,7 @@
 .navigation {
   height: 55px;
-  background: whitesmoke;
+  /* background: whitesmoke; */
+  background: #fff;
 }
 .brand {
   position: absolute;
@@ -145,4 +146,9 @@ nav ul li ul li a {
 }
 #navbar-toggle.active span:after {
   transform: rotate(-45deg);
+}
+
+.brand-img {
+  height: 40px;
+  width: auto;
 }
