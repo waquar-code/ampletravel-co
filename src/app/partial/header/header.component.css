@@ -38,7 +38,7 @@ nav ul li a:visited {
 }
 nav ul li a {
   background: transparent;
-  color: #fff;
+  /* color: #fff; */
 }
 nav ul li a.is-active,
 nav ul li a:hover,

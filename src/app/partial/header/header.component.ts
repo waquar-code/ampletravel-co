@@ -9,7 +9,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent {
   /*
-  
   //  open and close nav
   $("#navbar-toggle").click(function () {
     $("nav ul").slideToggle();
