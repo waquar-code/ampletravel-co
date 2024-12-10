@@ -112,13 +112,13 @@ body {
   user-select: none;
   white-space: nowrap;
   text-align: center;
-  margin-left: auto;
+  /* margin-left: auto; */
   padding: 0.65rem 1.5rem;
   border-radius: 3rem;
   text-transform: capitalize;
-  color: var(--color-white-100);
+  color: var(--color-white-100) !important;
   background-color: var(--color-blue-600);
-  background-color: var(--accent-color);
+  background-color: var(--accent-color) !important;
   box-shadow: var(--shadow-medium);
   transition: all 0.3s ease-in-out;
 }
@@ -160,7 +160,7 @@ body {
     text-transform: capitalize;
   }
   .menu-block {
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
   }
   .burger {
     display: none;

@@ -1,0 +1,21 @@
+.search-btn {
+  background: #151414;
+  /* color: #fff; */
+  box-shadow: 0px 7px 29px rgb(100 100 111 / 20%) !important;
+  border-radius: 0.25rem;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  /* color: #ffffff; */
+  padding: 13px 30px 11px;
+  margin-bottom: 20px;
+}
+.search-btn:not(.search-is-active) {
+  opacity: 0.5;
+}
+
+.search-is-active {
+  /* background: var(--accent-color) !important; */
+  background: #151414;
+  color: #fff;
+}

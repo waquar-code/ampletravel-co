@@ -40,12 +40,14 @@ button {
   box-shadow: none;
   text-decoration: none;
 }
-
+* {
+  line-height: normal;
+}
 button,
 input,
 textarea,
 select {
-  outline: none !important;;
+  outline: none !important;
 }
 a {
   /* color: #fff; */
@@ -83,6 +85,7 @@ a:hover {
 /*---------------- wrapper-gap ----------------*/
 .card {
   margin: 10px 0;
+  margin: 0;
   padding: 10px;
   background: #363636;
   background: #f4f4f4;
@@ -104,11 +107,6 @@ button {
   background: #5e5e5e;
   color: #fff;
 }
-/* .search-is-active,
-.is-active {
-  background: #fdfdfd;
-  color: #232323;
-} */
 footer a {
   color: #fff;
 }
@@ -162,4 +160,56 @@ button[disabled] {
 
 ul {
   list-style: none;
+}
+
+.banner-img {
+  background: url(https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* padding: 100px 0; */
+  background-position: center;
+  margin-top: -70px;
+  position: relative;
+  /* height: 90vh; */
+  /* padding-top: calc(34vh - 80px); */
+  padding: 230px 0 200px;
+}
+
+.banner-img .banner-title {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 12px #00000042;
+}
+.banner-img .card {
+  /* background: #ffffff5c; */
+  background: #fff;
+  padding: 20px 20px 20px;
+  border-radius: 10px;
+}
+
+.btn-accent {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 13px 60px 11px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  color: var(--color-white-100) !important;
+  background-color: var(--accent-color) !important;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease-in-out;
+}
+
+form label {
+  font-size: 14px;
+  color: #0d233e;
+}
+
+.input-group-text {
+  background-color: transparent;
 }
