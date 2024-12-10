@@ -173,6 +173,7 @@ ul {
   /* height: 90vh; */
   /* padding-top: calc(34vh - 80px); */
   padding: 230px 0 200px;
+  padding: 130px 0 100px;
 }
 
 .banner-img .banner-title {
@@ -208,8 +209,13 @@ ul {
 form label {
   font-size: 14px;
   color: #0d233e;
+  cursor: pointer;
 }
 
 .input-group-text {
   background-color: transparent;
+}
+
+.input-group-text {
+  cursor: pointer;
 }

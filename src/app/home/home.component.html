@@ -1,12 +1,11 @@
 <div class="banner-img">
   <div class="wrapper-gap">
     <div class="banner-title">Amazing Flights Waiting for You</div>
+    <div>
+      <button type="button" class="search-btn" (click)="showSearchTab('hotel')" [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-bed"></i> &nbsp; Hotel Search</button>
+      <button type="button" class="search-btn" (click)="showSearchTab('flight')" [ngClass]="isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-plane"></i> &nbsp; Flight Search</button>
+    </div>
     <div class="card">
-      <div>
-        <button type="button" class="search-btn" (click)="showSearchTab('hotel')" [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-bed"></i> &nbsp; Hotel Search</button>
-        <button type="button" class="search-btn" (click)="showSearchTab('flight')" [ngClass]="isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-plane"></i> &nbsp; Flight Search</button>
-      </div>
-
       <app-hotel-search *ngIf="!isFlightSearchShown"></app-hotel-search>
       <app-flight-search *ngIf="isFlightSearchShown"></app-flight-search>
     </div>

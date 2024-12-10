@@ -1,23 +1,111 @@
 <!-- <div class="wrapper-gap"> -->
 <!-- <div class="card"> -->
 <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
-  <div class="form-group">
-    <label for="flight-from">Flight From</label>
-    <input type="text" id="flight-from" name="username" required placeholder="City or airport" value="McCarran Intl, US (LAS)" formControlName="flight_from" />
-  </div>
-  <div class="form-group">
-    <label for="flight-to">Flight To</label>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">@</span>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="one_way" name="flight_type" class="custom-control-input" />
+        <label class="custom-control-label" for="one_way">One way</label>
       </div>
-      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="round_trip" name="flight_type" class="custom-control-input" checked />
+        <label class="custom-control-label" for="round_trip">Round-trip</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="direct _flight" name="direct _flight" class="custom-control-input" />
+        <label class="custom-control-label" for="direct _flight">Direct Flight</label>
+      </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label>Flying from</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-map-marker"></i>
+          </span>
+        </div>
+        <input type="text" class="form-control" value="Talaveral La Real Arpt, ES (BJZ)" formControlName="flight_from" />
+      </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label>Flying to</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-map-marker"></i>
+          </span>
+        </div>
+        <input type="text" class="form-control" value="Los Angeles Intl Arpt, US (LAX)" formControlName="flight_to" />
+      </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label>Departing</label>
+      <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23" formControlName="flight_dept" />
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label>Return</label>
+      <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23" formControlName="flight_return" />
+    </div>
+    <div class="col-md-3 col-12 mb-3 flight-guest-div">
+      <label class="d-block"> Traveller </label>
+      <div>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle w-100 text-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="openDropdown($event)">
+          <span>{{ flightForm.value.flight_adult }}</span> Adult(s) - <span>{{ flightForm.value.flight_child }}</span> Children - <span>{{ flightForm.value.flight_infant }}</span> Infant(s)
+        </button>
+        <div class="dropdown-menu p-0">
+          <!-- (click)="stopPropagation($event)" -->
+          <div class="row p-2">
+            <div class="col">Adult:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_adult', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_adult" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_adult', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col">Child:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_child', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_child" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_child', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col">Infant:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_infant', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_infant" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_infant', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 row">
+            <div class="col-12 text-right">
+              <button type="button" class="btn btn-primary btn-sm">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label>Coach</label>
+      <select class="form-control" name="cabin_class" id="cabin_class" formControlName="flight_coach">
+        <option selected="true" value="economy">Economy</option>
+        <option value="premium_economy">Premium</option>
+        <option value="first">First Class</option>
+        <option value="business">Business</option>
+      </select>
+    </div>
+    <div class="col-md-3 col-12 mb-3">
+      <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
+      <button type="submit" [disabled]="!flightForm.valid" class="btn-accent">SEARCH</button>
     </div>
   </div>
-
-  <br /><br />
-  <!-- <button type="button" [routerLink]="['/flight-list']">Search</button> -->
-  <button type="submit" [disabled]="!flightForm.valid" class="btn-accent">SEARCH</button>
 </form>
 <!-- </div> -->
 <!-- </div> -->
