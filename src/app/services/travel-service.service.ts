@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ModalServiceService } from './modal-service.service';
+import { AirportListService } from './airport-list.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,14 @@ export class TravelServiceService {
 
   private flightSearchResultSubject = new Subject();
 
-  constructor(private modalService: ModalServiceService) {}
+  constructor(
+    private modalService: ModalServiceService,
+    private airportListService: AirportListService
+  ) {}
+
+  getAirport(str: string) {
+    return this.airportListService.getAirport(str);
+  }
 
   getFlightSearchResultSubject() {
     return this.flightSearchResultSubject;

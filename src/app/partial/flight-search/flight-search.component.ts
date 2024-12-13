@@ -10,7 +10,13 @@ import { TravelServiceService } from 'src/app/services/travel-service.service';
   styleUrls: ['./flight-search.component.css'],
 })
 export class FlightSearchComponent {
+  filteredFlightFrom: any = [];
+  filteredFlightTo: any = [];
+
   flightForm = new FormGroup({
+    flight_type: new FormControl('round_trip'),
+    direct_flight: new FormControl(false),
+
     flight_from: new FormControl('McCarran Intl, US (LAS)', [
       Validators.required,
     ]),
@@ -33,6 +39,18 @@ export class FlightSearchComponent {
 
   ngOnInit() {
     this.setFlightFormValues();
+
+    this.flightForm.controls['flight_from'].valueChanges.subscribe(
+      (value: any) => {
+        this.filteredFlightFrom = this.travelService.getAirport(value);
+      }
+    );
+
+    this.flightForm.controls['flight_to'].valueChanges.subscribe(
+      (value: any) => {
+        this.filteredFlightTo = this.travelService.getAirport(value);
+      }
+    );
   }
 
   guestCounter(event: any, field: string, mode: boolean) {
@@ -63,7 +81,8 @@ export class FlightSearchComponent {
   }
 
   onFlightFormSubmit() {
-    // console.log(this.flightForm.value);
+    console.log(this.flightForm.value);
+    return;
     this.travelService.searchFlights(this.flightForm.value);
 
     this.router.navigate(['flight-list'], {

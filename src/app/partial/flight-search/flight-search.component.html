@@ -1,42 +1,60 @@
 <!-- <div class="wrapper-gap"> -->
 <!-- <div class="card"> -->
 <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
+  <!-- <button mat-raised-button type="button">Basic</button> -->
+
   <div class="row">
     <div class="col-12 mb-3">
-      <div class="custom-control custom-radio custom-control-inline">
+      <!-- <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" id="one_way" name="flight_type" class="custom-control-input" />
         <label class="custom-control-label" for="one_way">One way</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" id="round_trip" name="flight_type" class="custom-control-input" checked />
         <label class="custom-control-label" for="round_trip">Round-trip</label>
-      </div>
-      <div class="custom-control custom-checkbox custom-control-inline">
+      </div> -->
+
+      <!-- <div class="custom-control custom-checkbox custom-control-inline">
         <input type="checkbox" id="direct _flight" name="direct _flight" class="custom-control-input" />
         <label class="custom-control-label" for="direct _flight">Direct Flight</label>
-      </div>
+      </div> -->
+
+      <mat-radio-group aria-label="Select an option" formControlName="flight_type">
+        <mat-radio-button value="one_way" name="flight_type">One way</mat-radio-button>
+        &nbsp;
+        <mat-radio-button value="round_trip" name="flight_type">Round-trip</mat-radio-button>
+      </mat-radio-group>
+      &nbsp;
+      <mat-checkbox formControlName="direct_flight">Direct Flight</mat-checkbox>
     </div>
     <div class="col-md-3 col-12 mb-3">
-      <label>Flying from</label>
+      <!-- <label>Flying from</label>
       <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fa fa-map-marker"></i>
-          </span>
-        </div>
+        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker"></i></span></div>
         <input type="text" class="form-control" value="Talaveral La Real Arpt, ES (BJZ)" formControlName="flight_from" />
-      </div>
+      </div> -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Flying from</mat-label>
+        <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_from" [matAutocomplete]="autoFlightFrom" />
+        <mat-autocomplete #autoFlightFrom="matAutocomplete">
+          <mat-option *ngFor="let item of filteredFlightFrom" [value]="item.airport_code">{{ item.display_name }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
     <div class="col-md-3 col-12 mb-3">
-      <label>Flying to</label>
+      <!-- <label>Flying to</label>
       <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fa fa-map-marker"></i>
-          </span>
-        </div>
+        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker"></i></span></div>
         <input type="text" class="form-control" value="Los Angeles Intl Arpt, US (LAX)" formControlName="flight_to" />
-      </div>
+      </div> -->
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Flying to</mat-label>
+        <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_to" [matAutocomplete]="autoFlightTo" />
+        <mat-autocomplete #autoFlightTo="matAutocomplete">
+          <mat-option *ngFor="let item of filteredFlightTo" [value]="item.airport_code">{{ item.display_name }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
     <div class="col-md-3 col-12 mb-3">
       <label>Departing</label>
@@ -103,7 +121,8 @@
     </div>
     <div class="col-md-3 col-12 mb-3">
       <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
-      <button type="submit" [disabled]="!flightForm.valid" class="btn-accent">SEARCH</button>
+      <button type="submit" class="btn-accent">SEARCH</button>
+      <!-- [disabled]="!flightForm.valid" -->
     </div>
   </div>
 </form>

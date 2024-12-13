@@ -1,4 +1,12 @@
-<app-flight-search></app-flight-search>
+<div class="banner-img">
+  <div class="wrapper-gap">
+    <div class="banner-title">Amazing Flights Waiting for You</div>
+    <div class="card">
+      <app-flight-search></app-flight-search>
+    </div>
+  </div>
+</div>
+
 <div class="wrapper-gap">
   <div class="card" *ngIf="flightData && flightData.length > 0">
     <div *ngFor="let item of flightData">

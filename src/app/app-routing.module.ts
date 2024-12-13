@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 
-  { path: 'flight-search', component: FlightSearchComponent },
+  { path: 'flight-search', component: FlightListComponent },
   { path: 'flight-list', component: FlightListComponent },
   { path: 'flight-detail', component: FlightDetailComponent },
 
