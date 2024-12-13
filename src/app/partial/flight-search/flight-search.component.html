@@ -33,11 +33,11 @@
         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker"></i></span></div>
         <input type="text" class="form-control" value="Talaveral La Real Arpt, ES (BJZ)" formControlName="flight_from" />
       </div> -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="w-100">
         <mat-label>Flying from</mat-label>
         <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_from" [matAutocomplete]="autoFlightFrom" />
-        <mat-autocomplete #autoFlightFrom="matAutocomplete">
-          <mat-option *ngFor="let item of filteredFlightFrom" [value]="item.airport_code">{{ item.display_name }}</mat-option>
+        <mat-autocomplete #autoFlightFrom="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredFlightFrom" [value]="item">{{ item.display_name }}</mat-option>
         </mat-autocomplete>
       </mat-form-field>
     </div>
@@ -48,11 +48,11 @@
         <input type="text" class="form-control" value="Los Angeles Intl Arpt, US (LAX)" formControlName="flight_to" />
       </div> -->
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="w-100">
         <mat-label>Flying to</mat-label>
         <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_to" [matAutocomplete]="autoFlightTo" />
-        <mat-autocomplete #autoFlightTo="matAutocomplete">
-          <mat-option *ngFor="let item of filteredFlightTo" [value]="item.airport_code">{{ item.display_name }}</mat-option>
+        <mat-autocomplete #autoFlightTo="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredFlightTo" [value]="item">{{ item.display_name }}</mat-option>
         </mat-autocomplete>
       </mat-form-field>
     </div>

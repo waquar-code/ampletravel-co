@@ -42,15 +42,21 @@ export class FlightSearchComponent {
 
     this.flightForm.controls['flight_from'].valueChanges.subscribe(
       (value: any) => {
-        this.filteredFlightFrom = this.travelService.getAirport(value);
+        if (value && value.airport_code) {
+        } else this.filteredFlightFrom = this.travelService.getAirport(value);
       }
     );
 
     this.flightForm.controls['flight_to'].valueChanges.subscribe(
       (value: any) => {
-        this.filteredFlightTo = this.travelService.getAirport(value);
+        if (value && value.airport_code) {
+        } else this.filteredFlightTo = this.travelService.getAirport(value);
       }
     );
+  }
+
+  displayFn(value: any) {
+    return value.display_name;
   }
 
   guestCounter(event: any, field: string, mode: boolean) {
