@@ -1710,7 +1710,7 @@ export class AirportListService {
 
       if (k.join('___').toLowerCase().includes(str.toLowerCase())) {
         r.push({
-          display_name: `${k[1]} (${k[2]})`,
+          display_name: `${k[1]} (${k[2]}) | ${k[0]}`,
           city: k[0],
           airport_name: k[1],
           airport_code: k[2],
