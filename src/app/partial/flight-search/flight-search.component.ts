@@ -3,6 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TravelServiceService } from 'src/app/services/travel-service.service';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+// import {provideNativeDateAdapter} from '@angular/material/core';
+
 @Component({
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',

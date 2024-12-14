@@ -10,6 +10,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMenuModule } from '@angular/material/menu';
+
+import { MatNativeDateModule } from '@angular/material/core';
 
 const modules = [
   MatSlideToggleModule,
@@ -22,6 +26,9 @@ const modules = [
   MatCheckboxModule,
   MatSelectModule,
   MatAutocompleteModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatMenuModule,
 ];
 
 @NgModule({
