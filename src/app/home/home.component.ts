@@ -21,6 +21,8 @@ export class HomeComponent {
   handleFlightHotelSwitchTab() {
     const pathname = location.pathname;
 
+    console.log(pathname);
+
     if (pathname == '/flight-search' || pathname == '/hotel-search') {
       this.switchTab = false;
 

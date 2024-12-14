@@ -56,7 +56,7 @@ import { ModalComponent } from './partial/modal/modal.component';
   // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })

@@ -106,7 +106,12 @@
     -->
 
     <div class="col-md-3 col-12 mb-3 flight-guest-div">
-      <button type="button" mat-button [matMenuTriggerFor]="travellerMenu">
+      <button
+        type="button"
+        mat-button
+        [matMenuTriggerFor]="travellerMenu"
+        style="height: 56px; background: revert; background-color: var(--mdc-filled-text-field-container-color); border-bottom: 1px solid #8e8e8e; border-radius: 0; color: var(--mdc-filled-text-field-input-text-color); font-family: var(--mat-form-field-container-text-font); font-weight: 400"
+      >
         <span>{{ flightForm.value.flight_adult }}</span> Adult(s) - <span>{{ flightForm.value.flight_child }}</span> Children - <span>{{ flightForm.value.flight_infant }}</span> Infant(s)
       </button>
       <mat-menu #travellerMenu="matMenu">
@@ -162,18 +167,28 @@
     </div>
 
     <div class="col-md-3 col-12 mb-3">
-      <label>Coach</label>
+      <mat-form-field class="w-100">
+        <mat-label>Coach</mat-label>
+        <mat-select formControlName="flight_coach">
+          <mat-option selected="true" value="economy">Economy</mat-option>
+          <mat-option value="premium_economy">Premium</mat-option>
+          <mat-option value="first">First Class</mat-option>
+          <mat-option value="business">Business</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <label>Coach</label>
       <select class="form-control" name="cabin_class" id="cabin_class" formControlName="flight_coach">
         <option selected="true" value="economy">Economy</option>
         <option value="premium_economy">Premium</option>
         <option value="first">First Class</option>
         <option value="business">Business</option>
-      </select>
+      </select> -->
     </div>
 
     <div class="col-md-3 col-12 mb-3">
-      <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
-      <button type="submit" class="btn-accent">SEARCH</button>
+      <!-- <label class="d-block" style="opacity: 0; pointer-events: none">...</label> -->
+      <button style="height: 56px" type="submit" class="btn-accent w-100" mat-raised-button>SEARCH</button>
       <!-- [disabled]="!flightForm.valid" -->
     </div>
   </div>
