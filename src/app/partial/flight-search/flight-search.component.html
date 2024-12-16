@@ -1,11 +1,199 @@
-<div class="card wrapper-gap">
-  <form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
-    <label for="flight-from">Flight From</label>
-    <input type="text" id="flight-from" name="username" required placeholder="City or airport"
-      value="McCarran Intl, US (LAS)" formControlName="flight_from">
+<!-- <div class="wrapper-gap"> -->
+<!-- <div class="card"> -->
+<form [formGroup]="flightForm" (ngSubmit)="onFlightFormSubmit()">
+  <!-- <button mat-raised-button type="button">Basic</button> -->
 
-    <br><br>
-    <!-- <button type="button" [routerLink]="['/flight-list']">Search</button> -->
-    <button type="submit" [disabled]="!flightForm.valid">Search</button>
-  </form>
-</div>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <!-- <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="one_way" name="flight_type" class="custom-control-input" />
+        <label class="custom-control-label" for="one_way">One way</label>
+      </div>
+      
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="round_trip" name="flight_type" class="custom-control-input" checked />
+        <label class="custom-control-label" for="round_trip">Round-trip</label>
+      </div> -->
+
+      <!-- <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="direct _flight" name="direct _flight" class="custom-control-input" />
+        <label class="custom-control-label" for="direct _flight">Direct Flight</label>
+      </div> -->
+
+      <mat-radio-group aria-label="Select an option" formControlName="flight_type">
+        <mat-radio-button value="one_way" name="flight_type">One way</mat-radio-button>
+        &nbsp;
+        <mat-radio-button value="round_trip" name="flight_type">Round-trip</mat-radio-button>
+      </mat-radio-group>
+      &nbsp;
+      <mat-checkbox formControlName="direct_flight">Direct Flight</mat-checkbox>
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <!-- <label>Flying from</label>
+      <div class="input-group">
+        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker"></i></span></div>
+        <input type="text" class="form-control" value="Talaveral La Real Arpt, ES (BJZ)" formControlName="flight_from" />
+      </div> -->
+
+      <mat-form-field class="w-100">
+        <mat-label>Flying from</mat-label>
+        <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_from" [matAutocomplete]="autoFlightFrom" />
+        <mat-autocomplete #autoFlightFrom="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredFlightFrom" [value]="item">{{ item.display_name }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <!-- <label>Flying to</label>
+      <div class="input-group">
+        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker"></i></span></div>
+        <input type="text" class="form-control" value="Los Angeles Intl Arpt, US (LAX)" formControlName="flight_to" />
+      </div> -->
+
+      <mat-form-field class="w-100">
+        <mat-label>Flying to</mat-label>
+        <input type="text" placeholder="City or Airport" aria-label="Number" matInput formControlName="flight_to" [matAutocomplete]="autoFlightTo" />
+        <mat-autocomplete #autoFlightTo="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredFlightTo" [value]="item">{{ item.display_name }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <mat-form-field class="w-100">
+        <mat-label>Departing</mat-label>
+        <input matInput [matDatepicker]="flightDeptPicker" formControlName="flight_dept" />
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="flightDeptPicker"></mat-datepicker-toggle>
+        <mat-datepicker #flightDeptPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <mat-form-field class="w-100">
+        <mat-label>Return</mat-label>
+        <input matInput [matDatepicker]="flightReturnPicker" formControlName="flight_return" />
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="flightReturnPicker"></mat-datepicker-toggle>
+        <mat-datepicker #flightReturnPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- <div class="col-md-3 col-12 mb-3">
+      <label>Departing</label>
+      <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23" formControlName="flight_dept" />
+    </div>
+    
+    <div class="col-md-3 col-12 mb-3">
+      <label>Return</label>
+      <input type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23" formControlName="flight_return" />
+    </div> -->
+
+    <!--
+    <div class="col-md-3 col-12 mb-3">
+      <button type="button" mat-button >
+        <span>{{ flightForm.value.flight_adult }}</span> Adult(s) -
+        <span>{{ flightForm.value.flight_child }}</span> Children -
+        <span>{{ flightForm.value.flight_infant }}</span> Infant(s)
+      </button>
+      <mat-menu #travellerMenu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
+    -->
+
+    <div class="col-md-3 col-12 mb-3 flight-guest-div">
+      <button
+        type="button"
+        mat-button
+        [matMenuTriggerFor]="travellerMenu"
+        class="w-100"
+        style="height: 56px; background: revert; background-color: var(--mdc-filled-text-field-container-color); border-bottom: 1px solid #8e8e8e; border-radius: 0; color: var(--mdc-filled-text-field-input-text-color); font-family: var(--mat-form-field-container-text-font); font-weight: 400"
+      >
+        <span>{{ flightForm.value.flight_adult }}</span> Adult(s) - <span>{{ flightForm.value.flight_child }}</span> Children - <span>{{ flightForm.value.flight_infant }}</span> Infant(s)
+      </button>
+      <mat-menu #travellerMenu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <!-- <div>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle w-100 text-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="openDropdown($event)">
+          <span>{{ flightForm.value.flight_adult }}</span> Adult(s) - <span>{{ flightForm.value.flight_child }}</span> Children - <span>{{ flightForm.value.flight_infant }}</span> Infant(s)
+        </button>
+        <div class="dropdown-menu p-0">
+          <p>(click)="stopPropagation($event)"</p>
+          <div class="row p-2">
+            <div class="col">Adult:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_adult', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_adult" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_adult', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row p-2">
+            <div class="col">Child:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_child', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_child" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_child', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row p-2">
+            <div class="col">Infant:</div>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text" (click)="guestCounter($event, 'flight_infant', true)">+</span></div>
+                <input type="number" class="form-control" formControlName="flight_infant" />
+                <div class="input-group-append"><span class="input-group-text" (click)="guestCounter($event, 'flight_infant', false)">-</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2 row">
+            <div class="col-12 text-right">
+              <button type="button" class="btn btn-primary btn-sm">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <mat-form-field class="w-100">
+        <mat-label>Coach</mat-label>
+        <mat-select formControlName="flight_coach">
+          <mat-option selected="true" value="economy">Economy</mat-option>
+          <mat-option value="premium_economy">Premium</mat-option>
+          <mat-option value="first">First Class</mat-option>
+          <mat-option value="business">Business</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <label>Coach</label>
+      <select class="form-control" name="cabin_class" id="cabin_class" formControlName="flight_coach">
+        <option selected="true" value="economy">Economy</option>
+        <option value="premium_economy">Premium</option>
+        <option value="first">First Class</option>
+        <option value="business">Business</option>
+      </select> -->
+    </div>
+
+    <div class="col-md-3 col-12 mb-3">
+      <!-- <label class="d-block" style="opacity: 0; pointer-events: none">...</label> -->
+      <button style="height: 56px" type="submit" class="btn-accent w-100" mat-raised-button>SEARCH</button>
+      <!-- [disabled]="!flightForm.valid" -->
+    </div>
+  </div>
+</form>
+<!-- </div> -->
+
+<!-- </div> -->

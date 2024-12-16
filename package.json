@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
-    "build": "ng build",
+    "start": "ng serve --disable-host-check",
+    "build": "ng build --base-href https://waquar-code.github.io/ampletravel-co/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start2": "ng serve --disable-host-check"

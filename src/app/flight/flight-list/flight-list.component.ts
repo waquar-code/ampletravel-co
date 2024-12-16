@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TravelServiceService } from 'src/app/services/travel-service.service';
 
 @Component({
   selector: 'app-flight-list',
   templateUrl: './flight-list.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./flight-list.component.css'],
 })
 export class FlightListComponent {

@@ -1,15 +1,17 @@
-<div class="card wrapper-gap">
-  <div>
-    <button type="button" (click)="showSearchTab('hotel')"
-      [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''">Hotel
-      Search</button>
-    <button type="button" (click)="showSearchTab('flight')"
-      [ngClass]="isFlightSearchShown ? 'search-is-active' : ''">Flight
-      Search</button>
+<div class="banner-img">
+  <div class="wrapper-gap">
+    <div class="banner-title">Amazing Flights Waiting for You</div>
+    <div *ngIf="switchTab">
+      <button mat-button type="button" class="search-btn" (click)="showSearchTab('hotel')" [ngClass]="!isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-bed"></i>  Hotel Search</button>
+      <button mat-button type="button" class="search-btn" (click)="showSearchTab('flight')" [ngClass]="isFlightSearchShown ? 'search-is-active' : ''"><i class="fa fa-plane"></i>  Flight Search</button>
+    </div>
+    <div class="card pb-0">
+      <app-hotel-search *ngIf="!isFlightSearchShown"></app-hotel-search>
+      <app-flight-search *ngIf="isFlightSearchShown"></app-flight-search>
+    </div>
   </div>
-
-  <app-hotel-search *ngIf="!isFlightSearchShown"></app-hotel-search>
-  <app-flight-search *ngIf="isFlightSearchShown"></app-flight-search>
 </div>
 
-<div class="card wrapper-gap">subscribe to email</div>
+<div class="wrapper-gap">
+  <div class="card">subscribe to email</div>
+</div>

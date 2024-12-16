@@ -1,61 +1,45 @@
-<!-- <div class="card wrapper-gap" style="display: flex; justify-content: space-between;">
-  <span routerLink="/">Navbar Icon</span>
-  <div>
-    <button type="button" routerLink="/">Home</button>
-    <button type="button" routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</button>
-    <button type="button" routerLink="/flight-search" routerLinkActive="is-active">Flight Search</button>
-    <button type="button" routerLink="/login" routerLinkActive="is-active">Login</button>
-    <button type="button" routerLink="/signup" routerLinkActive="is-active">Signup</button>
-  </div>
-</div> -->
-
-<section class="navigation">
-  <div class="nav-container">
-    <div class="brand">
-      <a routerLink="/">Logo</a>
+<header class="header" id="header" (window:resize)="onResize($event)">
+  <!-- (scroll)="scrollHandler($event)" -->
+  <nav class="navbar wrapper-gap">
+    <a routerLink="/" class="brand">
+      <img class="brand-img" src="https://ampletravel.co/uploads/logo1.png" alt="https://ampletravel.co/uploads/logo1.png" />
+    </a>
+    <div (click)="navMenu()" class="burger" id="burger" [ngClass]="isMenuOpen ? 'is-active' : ''">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
     </div>
-    <nav>
-      <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-        <li><a routerLink="/hotel-search" routerLinkActive="is-active">Hotel Search</a></li>
-        <li><a routerLink="/flight-search" routerLinkActive="is-active">Flight Search</a></li>
-        <li><a routerLink="/login" routerLinkActive="is-active">Login</a></li>
-        <li><a routerLink="/signup" routerLinkActive="is-active">Signup</a></li>
-        <li>
-          <a href="#!">Services</a>
-          <ul class="navbar-dropdown">
-            <li>
-              <a href="#!">Sass</a>
-            </li>
-            <li>
-              <a href="#!">Less</a>
-            </li>
-            <li>
-              <a href="#!">Stylus</a>
-            </li>
-          </ul>
+    <div class="menu" id="menu" [ngClass]="isMenuOpen ? 'is-active' : ''">
+      <ul class="menu-inner">
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/hotel-search" routerLinkActive="router-is-active">
+            <i class="fa fa-bed"></i>
+            Hotel Search
+          </a>
         </li>
-        <li>
-          <a href="#!">Portfolio</a>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/flight-search" routerLinkActive="router-is-active">
+            <i class="fa fa-plane"></i>
+            Flight Search
+          </a>
         </li>
-        <li>
-          <a href="#!">Category</a>
-          <ul class="navbar-dropdown">
-            <li>
-              <a href="#!">Sass</a>
-            </li>
-            <li>
-              <a href="#!">Less</a>
-            </li>
-            <li>
-              <a href="#!">Stylus</a>
-            </li>
-          </ul>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/login" routerLinkActive="router-is-active">
+            <i class="fa fa-user"></i>
+            Login
+          </a>
         </li>
-        <li>
-          <a href="#!">Contact</a>
+        <li class="menu-item">
+          <a class="menu-link" routerLink="/signup" routerLinkActive="router-is-active">
+            <i class="fa fa-sign-out"></i>
+            Signup
+          </a>
         </li>
       </ul>
-    </nav>
-  </div>
-</section>
+    </div>
+    <a routerLink="/" class="menu-block">
+      <i class="fa fa-user-circle"></i>
+      Account
+    </a>
+  </nav>
+</header>

@@ -1,5 +1,33 @@
-<div class="card wrapper-gap">
-  hotel-search works!
-  <hr>
-  <button type="button" [routerLink]="['/hotel-list']">Search</button>
+<!-- <div class="wrapper-gap"> -->
+<!-- <div class="card"> -->
+<div class="row">
+  <div class="col-md-3 col-12">
+    <label for="h-dest_name">Where to?</label>
+    <input id="h-dest_name" type="text" class="form-control" placeholder="Enter city or property" />
+  </div>
+  <div class="col-md-3 col-12">
+    <label>Check In</label>
+    <input id="h-date_range-1" type="date" class="form-control" placeholder="Enter city or property" value="2024-11-23" />
+  </div>
+  <div class="col-md-3 col-12">
+    <label>Check Out</label>
+    <input id="h-date_range-2" type="date" class="form-control" placeholder="Enter city or property" value="2024-11-25" />
+  </div>
+  <div class="col-md-3 col-12">
+    <label class="d-block">Guests</label>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1 Room(s) - 1 Guest(s)</button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <button class="dropdown-item" type="button">Action</button>
+        <button class="dropdown-item" type="button">Another action</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12">
+    <label class="d-block" style="opacity: 0; pointer-events: none">...</label>
+    <button type="button" [routerLink]="['/hotel-list']" class="btn-accent">SEARCH</button>
+  </div>
 </div>
+<!-- </div> -->
+<!-- </div> -->

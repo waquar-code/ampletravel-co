@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 
-  { path: 'flight-search', component: FlightSearchComponent },
+  { path: 'flight-search', component: HomeComponent },
   { path: 'flight-list', component: FlightListComponent },
   { path: 'flight-detail', component: FlightDetailComponent },
 
-  { path: 'hotel-search', component: HotelSearchComponent },
+  { path: 'hotel-search', component: HomeComponent },
 
   // {
   //   path: '',

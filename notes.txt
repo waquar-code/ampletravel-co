@@ -10,3 +10,5 @@ ng g c flight/flight-detail
 ng g s services/travel-service
 ng g s services/modal-service
 ng g c partial/modal
+
+ng serve --open
